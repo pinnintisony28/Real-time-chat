@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartChat - AI-Powered Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <header>
+            <div class="logo">SmartChat</div>
+        </header>
+
+        <div class="chat-container">
+            <div class="messages-container" ref="messagesContainer">
+                <div v-for="(message, index) in messages" :key="index" class="message" :class="message.type">
+                    <div>{{ message.content }}</div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <input 
+                    type="text" 
+                    class="message-input" 
+                    v-model="newMessage" 
+                    @keyup.enter="sendMessage" 
+                    placeholder="Type your message..."
+                >
+                <button class="send-button" @click="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+<script src="chat.js"></script>
+    
+</body>
+</html> 
